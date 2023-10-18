@@ -1,0 +1,158 @@
+alias cd_last='cd $(ls -t "$1" \| head -n 1)'
+alias vimdiff_nospace="vimdiff -c \'diffopt+=iwhite\'"
+alias ssh_intermediate_node_lab=' ech ssh to ott2lab-as1, ott2lab-as2, ott2lab-as3 or ott1lab-as3 then ssh to the ottawa lab node'
+alias eclipse='echo /nobackup/rdawadi/eclipse/eclipse -data /nobackup/rdawadi/eclipse_workspace/ws_369/ -vmargs -Xmx4096M'
+alias iptables="echo set 0 to /proc/sys/net/bridge/bridge-nf-call-iptables, arptables and ip6tables"
+alias ffind='find . -iname $1'
+alias sls='screen -ls'
+alias sks='echo screen -X -S "$1" quit'
+#function sks ()
+#{
+#   screen -X -S $1 quit
+#}
+
+alias s?="echo $STY"
+alias bgp='cd routing-sw/routing/bgp'
+alias ofcbuild='echo /auto/ins-bld-tools/branches/iplus_b'
+alias gitlist='git diff-tree --no-commit-id --name-only -r $1 ;'
+alias gitdiffc='git diff $1^ $1 ;' 
+alias gitdifft='git difftool . ' 
+alias gitalias='git config --get-regexp alias'
+
+#alias gitlog="git log -$1 --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
+function gitlog ()
+{ 
+  #  echo "You entered: -$1"
+  git log -$1 --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s" --date=short
+ }
+
+alias gg='git log -5 --oneline  --all --graph'
+alias gls='git ls-files -m'
+alias gitdiffhead="echo git diff HEAD~1 HEAD >> /ws/rdawadi-sjc/ACI/codeConv/diff_ACI_6_3_dev_2_15_label_PCL"
+alias la='ls -a'
+alias gd='git difftool -y'
+alias acme_diff="/usr/cisco/packages/scmlinks/git3-acme difftool -y --extcmd='vimdiff -o'"
+alias gis='git status'
+alias gitfile="git show --name-only"
+alias gitdiffstash='git difftool stash'
+alias gitliststash='git stash show --name-only'
+alias p='pwd'
+alias upcs='chmod +x ~/updatecs.sh; ~/updatecs.sh'
+alias gitupdate='git stash save "(`date`) + last commit before stash: `git log --oneline -1`" && git pull --rebase && git submodule update --init --recursive'
+alias c='clear'
+alias l='ls -a'
+alias ll='ls -alt'
+alias gitmodified='echo git checkout HEAD "`git ls-files -m`"'
+
+
+#########################
+alias tftp_address='echo 223.255.254.254'
+alias tftp_location='echo /auto/tftpboot-ottawa/rdawadi'
+alias tftp_ott_scp='echo copy scp://rdawadi@223.255.254.247/auto/tftpboot-ottawa/rdawadi/bin_files/n7700-s2-dk9.7.2.0.TE.0.1.gbin bootflash: vrf management or copy scp://rdawadi@223.255.254.254/ws/rdawadi-sjc/bin_files/bgp_debug.bin bootflash: vrf management use-kstack or for pagent copy tftp://rdawadi@223.255.254.254/auto/tftpboot-ottawa/rdawadi/pagent/pagent_lne_bgp.cmd.v4.64k flash0:'
+alias ads_sjc="ssh rdawadi@sjc-ads-3901"
+alias ads_ott="ssh rdawadi@ott-ads-406"
+alias ucs="ssh laasadmin@ott-bgp-vm1 password: #vmcloud-dev"
+alias tftpsjc="cd /auto/tftp_bgp_sjc/rdawadi"
+
+alias laas="ssh rdawadi@sjc-vm9164.cisco.com"
+alias laas2="ssh rdawadi@vm-rdawadi-lnx.cisco.com"
+
+# alias for sourcing /router/bin for using 'wit' command
+alias wit_src="echo PATH=$PATH:/router/bin"
+
+# alias for generating SA
+alias sa_cmd="echo static_dcos -gen_diff_file -branch jacksonville"
+
+# alias for sourcing ACME and build environment
+alias acme_src='source /auto/andiamo/tools/etc/.bashrc.build > /dev/null 2>&1; echo "1"; module add VegasBuildEnv; echo "11"; source /auto/andiamo/tools/etc/.bashrc.build; echo "111"; source /auto/andatc/independent/shellrc-files/current/rc/.bashrc.build; echo "2"; vbe 5.2.2.3; echo "3"; export PATH=/auto/Insieme-EOR/eor-sw/tools/eortools:/auto/Insieme-EOR/eor-sw/tools/lab/bin:$PATH; echo "4"; export PATH=/auto/Insieme-EOR/eor-sw/tools/it_scripts:/auto/Insieme-EOR/eor-sw/tools/eortools:$PATH; echo "sourcing done"; '
+alias aci_src='source /auto/antares/tools/bin/.bashrc.build > /dev/null 2>&1; echo "1"; source /auto/antares/tools/bin/.bashrc.sdk; echo "111"; source /auto/ins-sw-infra/bin/centos_env_setup.sh; echo "2"; vbe 5.1.9.3; echo "3";  echo "sourcing done"; '
+alias aci_src_lafayette='source /auto/antares/tools/bin/.bashrc.build > /dev/null 2>&1; echo "1"; source /auto/antares/tools/bin/.bashrc.sdk; echo "111"; source /auto/ins-sw-infra/centosnewtoolchain/centos_env_setup.sh; echo "2"; vbe 5.1.9.3; echo "3";  echo "sourcing done"; '
+alias acme_src_new="module add VegasBuildEnv; sleep 1; source /auto/andiamo/tools/etc/.bashrc.build; sleep 2; vbe 5.2.2.19"
+alias pyats_src_nxos="source /auto/tftp_bgp_ott/pyATS.20.12.OTT.2/env.sh"
+
+# to update BGP comp to latest
+alias acme_update='echo acme update -comp routing-sw/routing/bgp@nx_bgp/latest'
+# to create and apply patch:
+alias acme_diff_patch='echo acme diff > abc.diff , acme patch < abc.diff'
+
+alias acme_diff_graph='echo acme diff -cmd /usr/bin/kompare'
+# to view gitk style tree on acme history
+alias acme_treee='echo acme lsvtree -comp routing-sw/routing/bgp -graphical'
+
+
+# alias to convert bin to ova for VM:
+alias ova_script='echo /auto/nsstg-tools/bin/imgtor.sh -b <src>.bin -d <dest>.ova'
+
+
+alias official_build_path='echo /auto/ins-bld-tools/branches/iplus_b/nexus/'
+
+alias gm="gmake GMAKE_DEPENDENCY_LEVEL=0 $1 -j8"
+
+# source alias for running xrutbringup command for n7k titanium:
+alias xrut_src="source /ws/hawu2-ott/pyats-ide-env/pyats/env.sh; source /auto/pysw/ats/env.sh;"
+
+# pyats log view;
+alias pyats_local_log='pyats logs view --host 0.0.0.0'
+# source for ibuild for n7k and titanium images
+alias ibuild_src="source /auto/nxos-contrib/etc/.nxos_build_rc; source /auto/andatc/independent/shellrc-files/current/rc/.bashrc.build; module add VegasBuildEnv; vbe 5.4.6; export NXOS_NO_SUEXEC='1'; export JAVA_HOME='/auto/java/jdks/lnx/jdk1.8.0-x64_latest';"
+
+# acme pull LBT
+alias acme_pull="echo acme nw -linkedtree -officialtree /auto/ins-bld-tools/branches/iplus_b/nexus/REL_9_3_4_IIL9_0_330"
+
+# acme build
+alias acme_build="echo cd build and ../tools/blast/bin/bat bgp,pbgp,pcore,pimage OR /auto/ins_tools/dev/bat/bat bgp,pbgp,pcore,pimage"
+alias bgp_build="echo cd build and gmake clean ins/x86e/final/bgp/sup -j8 and gmake GMAKE_DEPENDENCY_LEVEL=0 ins/x86e/final/bgp/sup -j8"
+alias gmake_build_full_binary="echo gmake GMAKE_DEPENDENCY_LEVEL=0 ins/x86e/final/bgp/sup -j4 and gmake images/final/bgp_n9000-imaging-only andand gmake images/final/nxos-imaging-only"
+
+# pyats source
+alias pyats_src="echo source /nobackup/rdawadi/pyats_old/env.sh source /auto/pysw/ats64/env.sh run: easypy jobs/otm_new_ns.py -testbed_file device_brent.yaml --testcase_file inputs/otm_test_vpn_unicast.yaml"
+# new ads for hardware ssh
+alias new_ads_ott_ssh="echo ssh nxos-bgp-lnx scp server: 5.252.17.116"
+
+# debug using gdb
+alias gdb_debug="echo /ws/xianqin-sjc/ucd/ucd -c <.tar.gz file name> "
+alias gdb_debug_1="echo /ws/xianqin-sjc/bingo/blogger_core.pl -t ./1634781473_0x101_bgp-1_log.9976.tar.gz "
+alias gdb_debug_2="echo /auto/savbu-releng/devtools/ucd/ucd  -c core_location -o build_root "
+# 64 bit bgp binary compile
+alias 64_bit_bgp="echo gmake -ik -j24 GMAKE_DEPENDENCY_LEVEL=0 ins/x86_64/final/bgp/sup and gmake -j12 images/final/bgp_64_n9000  and gmake -j12 images/final/core_64_n9000-imaging-only and this one not needed gmake images/final/bgp_64_n9000-imaging-only and gmake images/final/nxos64-imaging-only"
+# bat submit
+alias bat_compile="echo /auto/ins_tools/ins-tools/bat/bat enable_64,bgp,pbgp_64,p64image"
+alias bat_sa="echo /auto/ins_tools/ins-tools/bat/bat enable_64,bgp,pbgp_64,p64image"
+alias bat_submit="echo /auto/ins_tools/dev/bat/bat --submit --bugid CSCvv82154 --enable_64"
+alias sysmgr_cmd="echo system internal sysmgr service name urib ha-policy stateful retry 20; system internal sysmgr service name urib restart"
+
+alias disk_usage_free="echo du -ah --exclude=.snapshot --max-depth=1 | sort -hr"
+
+#aci_wit_snapshot() {
+#wit snapshot list -branch "$1" -team nxos | grep "Snapshot Name" | tail -4
+#}
+
+alias snapshot_list='wit snapshot list -branch "$1" -team nxos | grep "Snapshot Name" | tail -4'
+alias aci_wit_snapshot="echo wit snapshot list -branch main -team nxos \| grep 'Snapshot Name' \| tail -4"
+
+alias wit_space_cr_aci="echo /router/bin/wit space create -branch main -team nxos -snapshot KWAI_73 -space aci_wit1 -expire_at 2021-01-10 2>&1 | tee -a /var/tmp/wit2.log"
+alias aci_acme_pull="echo acme nw -linkedtree -branch kwai -build 213 -dir /nobackup/rdawadi/aci_213"
+alias aci_gmake_bgp_compile="echo gmake GMAKE_DEPENDENCY_LEVEL=0 icentos/x86ic/gdb/bgp/isup -j12"
+alias aci_bgp_build_repack="echo 'gmake GMAKE_DEPENDENCY_LEVEL=0 icentos/x86ic/gdb/bgp/isup -j12 && gmake -j8 images/gdb/core_icentos-imaging-only && gmake -j8 images/gdb/eth_icentos-imaging-only && gmake -j8 images/gdb/icentos-imaging-only && gmake -j8 images/gdb/icentos_full-imaging-only'"
+alias aci_full_build="echo '../itest/itest_tools/do_build_icentos.sh -iemake -final &> fullbuild1.log'"
+alias wit_space_list="echo wit space usage -u rdawadi wit space list -u rdawadi"
+alias wit_space_delete="echo space delete -space <space_name>"
+alias aci_bgp_build="echo /ws/sthaker-sjc/bin/acimakefastnew bgp final and ll icentos/x86ic/final/bgp/isup/bgp.bin"
+alias aci_bgp_reimage="echo /ws/sthaker-sjc/bin/acibuildimg_icentos final and ll images/final/aci-n9000-*.bin"
+
+alias admin_aci='/ws/rdawadi-sjc/bin_files/admin "$1"'
+alias root_aci='/ws/rdawadi-sjc/bin_files/ifc_root_login.sh "$1"'
+alias aci_log_viewer='ssh rdawadi@aci-logviewer'
+alias aci_log_viewer2='ssh rdawadi@aci-logviewer2'
+
+alias bgp_cut="echo tail -n '+$760004' ./show-tech-sup-output | head -n '13326158-760004+1'"
+
+alias cut_file="echo sed -n \'123,129p\' abc.txt \> abc_cut.txt"
+
+alias vnc_help="echo vncserver -geometry 1600x1200 -randr 1600x1200"
+
+timestamp()
+{
+ date +"%Y-%m-%d %T"
+}
+
